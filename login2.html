@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahamati Login</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 360px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .poster {
+            text-align: center;
+        }
+
+        .poster img {
+            margin-top: 30px;
+            width: 1300px;
+            height: auto;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        .form {
+            margin-top: 20px;
+        }
+
+        .form input[type="email"],
+        .form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form input[type="submit"]:hover {
+            background-color: #357ae8;
+        }
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .box {
+            flex: 1;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .box h2 {
+            font-size: 24px;
+        }
+
+        .box .value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4285f4;
+        }
+
+        .box .unit {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://play-lh.googleusercontent.com/4jlq9fgOmpkCikwBzJYkbXlkruFo1ygmaLaaLcLph9ln8sQgQ78P0-6teFkczp1S0N-l" alt="Digilocker">
+        </div>
+        <form class="form" id="loginForm">
+            <input type="email" id="emailInput" placeholder="Email or phone">
+            <input type="password" id="passwordInput" placeholder="Password">
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <!-- Added boxes -->
+    <div class="box-container">
+        <div class="box">
+            <h2>Accounts Linked</h2>
+            <div class="value">22.25</div>
+            <div class="unit">Million</div>
+        </div>
+        <div class="box">
+            <h2>Consent Requests</h2>
+            <div class="value">23.68</div>
+            <div class="unit">Million</div>
+        </div>
+        <div class="box">
+            <h2>Apps Linked</h2>
+            <div class="value">1440+</div>
+        </div>
+    </div>
+<div class="poster">
+            <img src="https://www.opindia.com/wp-content/uploads/2023/06/pm-modi.jpg" alt="Digilocker">
+        </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            // Get the values of email and password inputs
+            var email = document.getElementById("emailInput").value;
+            var password = document.getElementById("passwordInput").value;
+
+            // Make an API request (replace with your actual API endpoint)
+            fetch('https://api.publicapis.org/entries',{
+                mode: 'no-cors',
+                method: 'GET',
+                // body: JSON.stringify({ email: email, password: password }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                console.log(response)
+                // response.json()
+            })
+            .then(data => {
+                // Redirect to the callback URL (replace with your actual URL)
+                window.location.href = 'https://sidhwani-abhay.github.io/testHTML12233/authorize2.html';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Login failed. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
